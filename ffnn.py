@@ -35,9 +35,8 @@ class FFNN(nn.Module):
         h = self.activation(self.W1(input_vector))
         # Obtain output layer representation
         z = self.W2(h)
-        # Ensure z is 2D by adding a batch dimension if necessary
-        if z.dim() == 1:  # Check if z is 1D
-            z = z.unsqueeze(0)  # Add a batch dimension
+        if z.dim() == 1:  
+            z = z.unsqueeze(0) 
         # Apply softmax along the last dimension (dim=-1)
         predicted_vector = self.softmax(z)
 
